@@ -1,114 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vertical Swimlane View</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <script>
-    // Gantt Chart Setup
-    google.charts.load("current", { packages: ["gantt"] });
-    google.charts.setOnLoadCallback(drawChart);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vertical Swimlane View</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      // Gantt Chart Setup
+      google.charts.load("current", { packages: ["gantt"] });
+      google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
-      const data = new google.visualization.DataTable();
-      data.addColumn("string", "Task ID");
-      data.addColumn("string", "Task Name");
-      data.addColumn("string", "Resource");
-      data.addColumn("date", "Start Date");
-      data.addColumn("date", "End Date");
-      data.addColumn("number", "Duration");
-      data.addColumn("number", "Percent Complete");
-      data.addColumn("string", "Dependencies");
+      function drawChart() {
+        const data = new google.visualization.DataTable();
+        data.addColumn("string", "Task ID");
+        data.addColumn("string", "Task Name");
+        data.addColumn("string", "Resource");
+        data.addColumn("date", "Start Date");
+        data.addColumn("date", "End Date");
+        data.addColumn("number", "Duration");
+        data.addColumn("number", "Percent Complete");
+        data.addColumn("string", "Dependencies");
 
-      function getLastDayOfMonth(y, m) {
-        return new Date(y, m + 1, 0);
+        function getLastDayOfMonth(y, m) {
+          return new Date(y, m + 1, 0);
+        }
+
+        data.addRows([
+          [
+            "T1",
+            "Study EvOC & DEAP",
+            "Semester 7",
+            new Date(2025, 5, 1),
+            getLastDayOfMonth(2025, 5),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T2",
+            "LLM-EA Research",
+            "Semester 7",
+            new Date(2025, 5, 10),
+            getLastDayOfMonth(2025, 6),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T3",
+            "Design System Architecture",
+            "Semester 7",
+            new Date(2025, 6, 20),
+            getLastDayOfMonth(2025, 7),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T4",
+            "Problem-to-EA Mapping",
+            "Semester 7",
+            new Date(2025, 7, 20),
+            getLastDayOfMonth(2025, 8),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T5",
+            "LLM Fitness Functions",
+            "Semester 7",
+            new Date(2025, 9, 1),
+            getLastDayOfMonth(2025, 9),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T6",
+            "Build PoC (Crossover/Mutation)",
+            "Semester 7",
+            new Date(2025, 10, 1),
+            getLastDayOfMonth(2025, 10),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T7",
+            "Multi-Agent System Framework",
+            "Semester 8",
+            new Date(2025, 11, 1),
+            new Date(2025, 12, 15),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T8",
+            "Implement RAG System & KB",
+            "Semester 8",
+            new Date(2025, 11, 15),
+            getLastDayOfMonth(2026, 0),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T9",
+            "Complete RAG Pipeline",
+            "Semester 8",
+            new Date(2025, 11, 20),
+            getLastDayOfMonth(2026, 1),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T10",
+            "Automated Code Evaluation",
+            "Semester 8",
+            new Date(2026, 1, 1),
+            getLastDayOfMonth(2026, 2),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T11",
+            "Integrate Backend",
+            "Semester 8",
+            new Date(2026, 3, 1),
+            getLastDayOfMonth(2026, 3),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T12",
+            "Finalize & Test System",
+            "Semester 8",
+            new Date(2026, 2, 1),
+            getLastDayOfMonth(2026, 4),
+            null,
+            0,
+            null,
+          ],
+        ]);
+
+        const chart = new google.visualization.Gantt(
+          document.getElementById("chart_div")
+        );
+        chart.draw(data, {
+          height: 520,
+          gantt: {
+            defaultStartDate: new Date(2025, 4, 1),
+            barHeight: 22,
+            trackHeight: 40,
+            sortTasks: false,
+          },
+        });
       }
 
-      data.addRows([
-        ["T1", "Study EvOC & DEAP", "Semester 7", new Date(2025, 5, 1), getLastDayOfMonth(2025, 5), null, 0, null],
-        ["T2", "LLM-EA Research", "Semester 7", new Date(2025, 5, 10), getLastDayOfMonth(2025, 6), null, 0, null],
-        ["T3", "Design System Architecture", "Semester 7", new Date(2025, 6, 20), getLastDayOfMonth(2025, 7), null, 0, null],
-        ["T4", "Problem-to-EA Mapping", "Semester 7", new Date(2025, 7, 20), getLastDayOfMonth(2025, 8), null, 0, null],
-        ["T5", "LLM Fitness Functions", "Semester 7", new Date(2025, 9, 1), getLastDayOfMonth(2025, 9), null, 0, null],
-        ["T6", "Build PoC (Crossover/Mutation)", "Semester 7", new Date(2025, 10, 1), getLastDayOfMonth(2025, 10), null, 0, null],
-        ["T7", "Multi-Agent System Framework", "Semester 8", new Date(2025, 11, 1), new Date(2025, 12, 15), null, 0, null],
-        ["T8", "Implement RAG System & KB", "Semester 8", new Date(2025, 11, 15), getLastDayOfMonth(2026, 0), null, 0, null],
-        ["T9", "Complete RAG Pipeline", "Semester 8", new Date(2025, 11, 20), getLastDayOfMonth(2026, 1), null, 0, null],
-        ["T10", "Automated Code Evaluation", "Semester 8", new Date(2026, 1, 1), getLastDayOfMonth(2026, 2), null, 0, null],
-        ["T11", "Integrate Backend", "Semester 8", new Date(2026, 3, 1), getLastDayOfMonth(2026, 3), null, 0, null],
-        ["T12", "Finalize & Test System", "Semester 8", new Date(2026, 2, 1), getLastDayOfMonth(2026, 4), null, 0, null]
-      ]);
+      const tasks = [
+        {
+          name: "Study EvOC & DEAP",
+          members: ["Compared DEAP/EA papers", "Studied EvOC codebase", "", ""],
+        },
+        {
+          name: "LLM-EA Research",
+          members: ["LLM prompt testing & doc", "", "", ""],
+        },
+        {
+          name: "Design System Architecture",
+          members: ["", "", "Planned system interfaces", ""],
+        },
+        {
+          name: "Problem-to-EA Mapping",
+          members: ["", "", "", "Drafted fitness evaluation"],
+        },
+        {
+          name: "LLM Fitness Functions",
+          members: ["Designed prompts", "", "", "Evaluation criteria testing"],
+        },
+        {
+          name: "Build PoC (Crossover/Mutation)",
+          members: ["", "", "Implemented mutation ops", ""],
+        },
+        {
+          name: "Multi-Agent System Framework",
+          members: ["Node roles & handshake", "", "Agent logic", ""],
+        },
+        {
+          name: "Implement RAG System & KB",
+          members: ["", "Built retrieval API", "Integrated vector DB", ""],
+        },
+        {
+          name: "Complete RAG Pipeline",
+          members: ["", "", "End-to-end RAG", ""],
+        },
+        {
+          name: "Automated Code Evaluation",
+          members: ["", "", "Evaluator logic", ""],
+        },
+        {
+          name: "Integrate Backend",
+          members: ["", "", "", "Frontend+backend link"],
+        },
+        {
+          name: "Finalize & Test System",
+          members: ["Tested final build", "", "", "Drafted final report"],
+        },
+      ];
 
-      const chart = new google.visualization.Gantt(document.getElementById("chart_div"));
-      chart.draw(data, {
-        height: 500,
-        gantt: {
-          defaultStartDate: new Date(2025, 4, 1),
-          barHeight: 22,
-          trackHeight: 40
-        }
-      });
-    }
+      window.addEventListener("DOMContentLoaded", () => {
+    const tbody = document.getElementById("taskTableBody");
 
-    const tasks = [
-      { name: "Study EvOC & DEAP", members: ["Compared DEAP/EA papers", "Studied EvOC codebase", "", ""] },
-      { name: "LLM-EA Research", members: ["LLM prompt testing & doc", "", "", ""] },
-      { name: "Design System Architecture", members: ["", "", "Planned system interfaces", ""] },
-      { name: "Problem-to-EA Mapping", members: ["", "", "", "Drafted fitness evaluation"] },
-      { name: "LLM Fitness Functions", members: ["Designed prompts", "", "", "Evaluation criteria testing"] },
-      { name: "Build PoC (Crossover/Mutation)", members: ["", "", "Implemented mutation ops", ""] },
-      { name: "Multi-Agent System Framework", members: ["Node roles & handshake", "", "Agent logic", ""] },
-      { name: "Implement RAG System & KB", members: ["", "Built retrieval API", "Integrated vector DB", ""] },
-      { name: "Complete RAG Pipeline", members: ["", "", "End-to-end RAG", ""] },
-      { name: "Automated Code Evaluation", members: ["", "", "Evaluator logic", ""] },
-      { name: "Integrate Backend", members: ["", "", "", "Frontend+backend link"] },
-      { name: "Finalize & Test System", members: ["Tested final build", "", "", "Drafted final report"] }
-    ];
+    tasks.forEach((task, idx) => {
+      const isSemester7 = idx < 6;
+      const bgClass = isSemester7 ? "bg-blue-100" : "bg-rose-100";
+      const textClass = isSemester7 ? "text-blue-900" : "text-rose-900";
 
-    window.addEventListener("DOMContentLoaded", () => {
-      const tbody = document.getElementById("taskTableBody");
-      tasks.forEach((task, idx) => {
-        const isSemester7 = idx < 6;
-        const bgClass = isSemester7 ? "bg-blue-50" : "bg-red-50";
-        const borderClass = isSemester7 ? "border-blue-200" : "border-red-200";
-        const row = document.createElement("tr");
-        row.className = `${bgClass} ${borderClass} border`;
-        row.innerHTML = `
-          <td class="border border-2 border-black px-4 py-2 font-medium text-gray-800">${task.name}</td>
-          ${task.members.map(m => `
-            <td class="border border-black px-4 py-2 ${m ? "text-blue-900 font-medium" : "text-gray-400"}">${m || "-"}</td>
-          `).join("")}
-        `;
-        tbody.appendChild(row);
-      });
+      const row = document.createElement("tr");
+      row.className = `${bgClass} hover:bg-yellow-50 transition`;
+
+      row.innerHTML = `
+        <td class="px-4 py-3 font-semibold ${textClass} border border-black">${task.name}</td>
+        ${task.members.map(m =>
+          `<td class="px-4 py-3 border border-b-black ${m ? `${textClass} font-medium` : "text-gray-400 italic" }">${m || "—"}</td>`
+        ).join("")}
+      `;
+      tbody.appendChild(row);
     });
-  </script>
-</head>
-<body class="bg-gray-100 font-sans p-6">
-  <div class="max-w-7xl mx-auto bg-white shadow rounded-lg p-6">
-    <h1 class="text-3xl font-bold text-center mb-6 text-blue-800">Final Year Project Timeline</h1>
+  });
+    </script>
+  </head>
+  <body class="bg-gray-100 font-sans p-6">
+    <div class="max-w-7xl mx-auto bg-white shadow rounded-lg p-6">
+      <h1
+        class="text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-6"
+      >
+        Final Year Project Timeline
+      </h1>
+      <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+        This Gantt chart visualizes the key phases of creating Evolution On
+        Click (v2).
+      </p>
+      <div
+        class="my-4 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-base md:text-lg"
+      >
+        <div class="flex items-center">
+          <span
+            class="inline-block w-5 h-5 rounded-full bg-blue-500 mr-2"
+          ></span>
+          <span>Semester 7</span>
+        </div>
+        <div class="flex items-center">
+          <span
+            class="inline-block w-5 h-5 rounded-full bg-red-500 mr-2"
+          ></span>
+          <span>Semester 8</span>
+        </div>
+      </div>
 
-    <!-- Gantt Chart -->
-    <div id="chart_div" class="mb-12 rounded border p-2 bg-white shadow"></div>
+      <!-- Gantt Chart -->
+      <div
+        id="chart_div"
+        class="mb-12 rounded border p-2 bg-white shadow"
+      ></div>
 
-    <!-- Vertical Swimlane Table -->
-    <h2 class="text-2xl font-semibold mb-4 text-center text-indigo-800">Vertical Swimlane View (Color Coded by Semester)</h2>
-    <div class="overflow-x-auto">
-      <table class="min-w-full table-auto border border-2 border-black shadow-sm rounded-lg">
-        <thead class="bg-indigo-100 text-sm font-semibold text-indigo-900">
-          <tr>
-            <th class="border border-black border-2 px-4 py-2 text-left">Task</th>
-            <th class="border border-black border-2 px-4 py-2">You</th>
-            <th class="border border-black border-2 px-4 py-2">Member 2</th>
-            <th class="border border-black border-2 px-4 py-2">Member 3</th>
-            <th class="border border-black border-2 px-4 py-2">Member 4</th>
-          </tr>
-        </thead>
-        <tbody id="taskTableBody" class="text-sm border border-2 border-black"></tbody>
-      </table>
+      <!-- Vertical Swimlane Table -->
+      <h2 class="text-2xl font-semibold mb-4 text-center text-indigo-800">
+        Individual Contributions
+      </h2>
+
+      <div class="overflow-x-auto">
+        <table
+          class="min-w-full table-auto shadow-md rounded-lg overflow-hidden border-black"
+        >
+          <thead class="bg-indigo-800 text-white text-sm font-semibold border border-black">
+            <tr>
+              <th class="px-4 py-3 text-left">Task</th>
+              <th class="px-4 py-3">You</th>
+              <th class="px-4 py-3">Member 2</th>
+              <th class="px-4 py-3">Member 3</th>
+              <th class="px-4 py-3">Member 4</th>
+            </tr>
+          </thead>
+          <tbody id="taskTableBody" class="text-sm border border-black"></tbody>
+        </table>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
