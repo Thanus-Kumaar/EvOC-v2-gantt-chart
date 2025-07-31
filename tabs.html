@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Timeline - Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body class="bg-gradient-to-br from-slate-100 to-blue-100 min-h-screen font-sans p-6">
+  <div class="max-w-7xl mx-auto bg-white shadow-xl rounded-lg p-6">
+    <h1 class="text-3xl font-bold text-center mb-6 text-indigo-800">📘 Final Year Project Dashboard</h1>
+
+    <!-- Tabs -->
+    <div class="flex space-x-4 border-b mb-6">
+      <button onclick="switchTab('tab-gantt')" class="tab-btn active-tab">Gantt Chart</button>
+      <button onclick="switchTab('tab-task')" class="tab-btn">By Task</button>
+      <button onclick="switchTab('tab-member')" class="tab-btn">By Member</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="tab-gantt" class="tab-content">
+      <div id="chart_div" class="rounded border p-2 bg-white"></div>
+    </div>
+
+    <div id="tab-task" class="tab-content hidden">
+      <h2 class="text-xl font-semibold mb-4 text-indigo-700">Task-Wise Contributions</h2>
+      <div id="task-view" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </div>
+
+    <div id="tab-member" class="tab-content hidden">
+      <h2 class="text-xl font-semibold mb-4 text-indigo-700">Member-Wise Contributions</h2>
+      <div id="member-view" class="grid md:grid-cols-2 gap-4"></div>
+    </div>
+  </div>
+
+  <script>
+    const colors = ["blue", "green", "yellow", "purple", "red", "teal"];
+    const tasks = [
+      {
+        id: "P1-M1", name: "Study EvOC & DEAP", resource: "Semester 7", start: [2025, 5, 1], end: [2025, 5, 30],
+        contributions: {
+          You: "Researched DEAP architecture and EA comparison",
+          "Member 2": "Studied EvOC system and reviewed code",
+          "Member 3": "Literature survey on EA tools",
+          "Member 4": "Set up baseline examples and validated outputs"
+        }
+      },
+      {
+        id: "P1-M2", name: "LLM-EA Research", resource: "Semester 7", start: [2025, 5, 10], end: [2025, 6, 30],
+        contributions: {
+          You: "Explored LLM use in EA optimization",
+          "Member 2": "Compiled related research papers"
+        }
+      },
+      {
+        id: "P1-M3", name: "Design System Architecture", resource: "Semester 7", start: [2025, 6, 20], end: [2025, 7, 31],
+        contributions: {
+          "Member 3": "Drafted high-level architecture",
+          You: "Reviewed and updated agent interaction flow"
+        }
+      },
+      {
+        id: "P1-M4", name: "Problem-to-EA Mapping", resource: "Semester 7", start: [2025, 7, 20], end: [2025, 8, 30],
+        contributions: {
+          "Member 4": "Created mapping module",
+          "Member 2": "Tested with sample problems"
+        }
+      },
+      {
+        id: "P1-M5", name: "LLM Fitness Functions", resource: "Semester 7", start: [2025, 9, 1], end: [2025, 9, 30],
+        contributions: {
+          You: "Prompt design and output evaluation",
+          "Member 3": "Result interpretation module"
+        }
+      },
+      {
+        id: "P1-M6", name: "PoC Crossover/Mutation", resource: "Semester 7", start: [2025, 10, 1], end: [2025, 10, 31],
+        contributions: {
+          "Member 4": "Implemented crossover logic",
+          "Member 2": "Mutation algorithm"
+        }
+      },
+      {
+        id: "P2-M1", name: "Multi-Agent System", resource: "Semester 8", start: [2025, 11, 1], end: [2025, 11, 15],
+        contributions: {
+          "Member 3": "Wrote basic agent interaction code",
+          You: "Managed communication pipeline"
+        }
+      },
+      {
+        id: "P2-M2", name: "RAG System & KB", resource: "Semester 8", start: [2025, 11, 15], end: [2026, 0, 31],
+        contributions: {
+          "Member 4": "Built document retrieval and QA",
+          "Member 2": "Integrated KB structure"
+        }
+      },
+      {
+        id: "P2-M3", name: "Complete RAG Pipeline", resource: "Semester 8", start: [2025, 11, 20], end: [2026, 1, 28],
+        contributions: {
+          You: "Tested RAG against code snippets",
+          "Member 3": "Connected outputs to fitness evaluator"
+        }
+      },
+      {
+        id: "P2-M4", name: "Automated Code Eval", resource: "Semester 8", start: [2026, 1, 1], end: [2026, 2, 31],
+        contributions: {
+          You: "Designed evaluation scoring system",
+          "Member 2": "Built safe code execution runner"
+        }
+      },
+      {
+        id: "P2-M5", name: "Integrate Backend", resource: "Semester 8", start: [2026, 3, 1], end: [2026, 3, 30],
+        contributions: {
+          "Member 4": "Linked backend to UI",
+          "Member 2": "Managed database/API"
+        }
+      },
+      {
+        id: "P2-M6", name: "Final Testing & Docs", resource: "Semester 8", start: [2026, 2, 1], end: [2026, 4, 31],
+        contributions: {
+          You: "Wrote documentation",
+          "Member 3": "Proofread and formatted",
+          "Member 4": "Conducted final testing"
+        }
+      }
+    ];
+
+    // Gantt chart
+    google.charts.load("current", { packages: ["gantt"] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      const data = new google.visualization.DataTable();
+      data.addColumn("string", "Task ID");
+      data.addColumn("string", "Task Name");
+      data.addColumn("string", "Resource");
+      data.addColumn("date", "Start Date");
+      data.addColumn("date", "End Date");
+      data.addColumn("number", "Duration");
+      data.addColumn("number", "Percent Complete");
+      data.addColumn("string", "Dependencies");
+
+      function toDate([y, m, d]) {
+        return new Date(y, m, d);
+      }
+
+      tasks.forEach(task =>
+        data.addRow([
+          task.id,
+          task.name,
+          task.resource,
+          toDate(task.start),
+          toDate(task.end),
+          null,
+          0,
+          null
+        ])
+      );
+
+      const chart = new google.visualization.Gantt(document.getElementById("chart_div"));
+      chart.draw(data, {
+        height: 600,
+        gantt: {
+          trackHeight: 38,
+          barHeight: 22
+        }
+      });
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-content").forEach(el => el.classList.add("hidden"));
+      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active-tab"));
+      document.getElementById(tabId).classList.remove("hidden");
+      event.target.classList.add("active-tab");
+    }
+
+    const taskContainer = document.getElementById("task-view");
+    const memberContainer = document.getElementById("member-view");
+    const memberMap = {};
+
+    tasks.forEach((task, index) => {
+      const color = colors[index % colors.length];
+
+      // Task card
+      const taskCard = document.createElement("div");
+      taskCard.className = `bg-${color}-50 border-l-4 border-${color}-500 p-4 rounded shadow-sm`;
+      taskCard.innerHTML = `
+        <h3 class="font-bold text-${color}-800 text-lg mb-2">${task.name}</h3>
+        <ul class="list-disc pl-6 space-y-1 text-sm text-gray-800">
+          ${Object.entries(task.contributions).map(
+            ([member, text]) => `<li><strong>${member}:</strong> ${text}</li>`
+          ).join("")}
+        </ul>`;
+      taskContainer.appendChild(taskCard);
+
+      // Map to members
+      for (const [member, text] of Object.entries(task.contributions)) {
+        if (!memberMap[member]) memberMap[member] = [];
+        memberMap[member].push({ task: task.name, text });
+      }
+    });
+
+    Object.entries(memberMap).forEach(([member, items], i) => {
+      const color = colors[i % colors.length];
+      const div = document.createElement("div");
+      div.className = `bg-${color}-100 border-l-4 border-${color}-600 p-4 rounded shadow`;
+      div.innerHTML = `
+        <h3 class="font-bold text-${color}-800 text-lg mb-2">${member}</h3>
+        <ul class="list-disc pl-6 text-sm text-gray-800 space-y-1">
+          ${items.map(i => `<li><strong>${i.task}:</strong> ${i.text}</li>`).join("")}
+        </ul>`;
+      memberContainer.appendChild(div);
+    });
+  </script>
+
+  <style>
+    .tab-btn {
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      color: #4b5563;
+      border-bottom: 2px solid transparent;
+    }
+    .tab-btn:hover {
+      color: #2563eb;
+    }
+    .active-tab {
+      color: #2563eb;
+      border-color: #2563eb;
+    }
+  </style>
+</body>
+</html>

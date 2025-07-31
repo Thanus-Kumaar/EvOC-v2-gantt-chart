@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion Task Contributions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      google.charts.load("current", { packages: ["gantt"] });
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        const data = new google.visualization.DataTable();
+        data.addColumn("string", "Task ID");
+        data.addColumn("string", "Task Name");
+        data.addColumn("string", "Resource");
+        data.addColumn("date", "Start Date");
+        data.addColumn("date", "End Date");
+        data.addColumn("number", "Duration");
+        data.addColumn("number", "Percent Complete");
+        data.addColumn("string", "Dependencies");
+
+        function getLastDayOfMonth(y, m) {
+          return new Date(y, m + 1, 0);
+        }
+
+        data.addRows([
+          [
+            "T1",
+            "Study EvOC & DEAP",
+            "Semester 7",
+            new Date(2025, 5, 1),
+            getLastDayOfMonth(2025, 5),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T2",
+            "LLM-EA Research",
+            "Semester 7",
+            new Date(2025, 5, 10),
+            getLastDayOfMonth(2025, 6),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T3",
+            "Design System Architecture",
+            "Semester 7",
+            new Date(2025, 6, 20),
+            getLastDayOfMonth(2025, 7),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T4",
+            "Problem-to-EA Mapping",
+            "Semester 7",
+            new Date(2025, 7, 20),
+            getLastDayOfMonth(2025, 8),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T5",
+            "LLM Fitness Functions",
+            "Semester 7",
+            new Date(2025, 9, 1),
+            getLastDayOfMonth(2025, 9),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T6",
+            "Build PoC (Crossover/Mutation)",
+            "Semester 7",
+            new Date(2025, 10, 1),
+            getLastDayOfMonth(2025, 10),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T7",
+            "Multi-Agent System",
+            "Semester 8",
+            new Date(2025, 11, 1),
+            new Date(2025, 12, 15),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T8",
+            "Implement RAG System & KB",
+            "Semester 8",
+            new Date(2025, 11, 15),
+            getLastDayOfMonth(2026, 0),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T9",
+            "Complete RAG Pipeline",
+            "Semester 8",
+            new Date(2025, 11, 20),
+            getLastDayOfMonth(2026, 1),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T10",
+            "Automated Code Evaluation",
+            "Semester 8",
+            new Date(2026, 1, 1),
+            getLastDayOfMonth(2026, 2),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T11",
+            "Integrate Backend",
+            "Semester 8",
+            new Date(2026, 3, 1),
+            getLastDayOfMonth(2026, 3),
+            null,
+            0,
+            null,
+          ],
+          [
+            "T12",
+            "Finalize & Test System",
+            "Semester 8",
+            new Date(2026, 2, 1),
+            getLastDayOfMonth(2026, 4),
+            null,
+            0,
+            null,
+          ],
+        ]);
+
+        const chart = new google.visualization.Gantt(
+          document.getElementById("chart_div")
+        );
+        chart.draw(data, {
+          height: 520,
+          gantt: {
+            defaultStartDate: new Date(2025, 4, 1),
+            barHeight: 22,
+            trackHeight: 40,
+            sortTasks: false,
+          },
+        });
+      }
+    </script>
+  </head>
+  <body class="bg-gray-100 font-sans p-6">
+    <div class="max-w-6xl mx-auto bg-white shadow-lg p-6 rounded-lg">
+      <h1
+        class="text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-6"
+      >
+        Final Year Project Timeline
+      </h1>
+      <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+        This Gantt chart visualizes the key phases of creating Evolution On
+        Click (v2).
+      </p>
+      <div
+        class="my-4 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-base md:text-lg"
+      >
+        <div class="flex items-center">
+          <span
+            class="inline-block w-5 h-5 rounded-full bg-blue-500 mr-2"
+          ></span>
+          <span>Semester 7</span>
+        </div>
+        <div class="flex items-center">
+          <span
+            class="inline-block w-5 h-5 rounded-full bg-red-500 mr-2"
+          ></span>
+          <span>Semester 8</span>
+        </div>
+      </div>
+
+      <!-- Gantt Chart -->
+      <div id="chart_div" class="mb-12 border rounded p-2 bg-white"></div>
+      <div id="accordion-container" class="space-y-4"></div>
+      <script>
+        const tasks = [
+          {
+            title: "Study EvOC & DEAP",
+            icon: "📘",
+            color: "indigo",
+            contributions: [
+              {
+                name: "You",
+                text: "Compared DEAP/EA papers and summarized key takeaways.",
+              },
+              {
+                name: "Member 2",
+                text: "Explored and explained EvOC source code.",
+              },
+            ],
+          },
+          {
+            title: "LLM-EA Research",
+            icon: "🧠",
+            color: "green",
+            contributions: [
+              {
+                name: "You",
+                text: "Researched RAG-based optimization and prompt engineering.",
+              },
+            ],
+          },
+          {
+            title: "Design System Architecture",
+            icon: "🛠️",
+            color: "yellow",
+            contributions: [
+              {
+                name: "Member 3",
+                text: "Designed communication flow between frontend and agents.",
+              },
+            ],
+          },
+          {
+            title: "Finalize & Test System",
+            icon: "✅",
+            color: "red",
+            contributions: [
+              { name: "You", text: "Final round of testing and validation." },
+              {
+                name: "Member 4",
+                text: "Helped draft the final technical report.",
+              },
+            ],
+          },
+        ];
+
+        const container = document.getElementById("accordion-container");
+
+        tasks.forEach((task) => {
+          const details = document.createElement("details");
+          details.className = `group bg-${task.color}-100 hover:bg-${task.color}-200 transition rounded-lg shadow-md p-4`;
+
+          const summary = document.createElement("summary");
+          summary.className = `flex items-center justify-between cursor-pointer text-lg font-semibold text-${task.color}-900`;
+          summary.innerHTML = `
+        <span>${task.icon} ${task.title}</span>
+        <svg class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      `;
+
+          const content = document.createElement("div");
+          content.className = `mt-3 space-y-2 text-sm text-${task.color}-900`;
+
+          task.contributions.forEach((c) => {
+            const card = document.createElement("div");
+            card.className = `bg-${task.color}-50 border-l-4 border-${task.color}-400 p-3 rounded shadow-sm`;
+            card.innerHTML = `<strong>${c.name}:</strong> ${c.text}`;
+            content.appendChild(card);
+          });
+
+          details.appendChild(summary);
+          details.appendChild(content);
+          container.appendChild(details);
+        });
+      </script>
+    </div>
+  </body>
+</html>
