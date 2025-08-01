@@ -164,55 +164,116 @@
       }
 
       const tasks = [
-        {
-          name: "Study EvOC & DEAP",
-          members: ["Compared DEAP/EA papers", "Studied EvOC codebase", "", ""],
-        },
-        {
-          name: "LLM-EA Research",
-          members: ["LLM prompt testing & doc", "", "", ""],
-        },
-        {
-          name: "Design System Architecture",
-          members: ["", "", "Planned system interfaces", ""],
-        },
-        {
-          name: "Problem-to-EA Mapping",
-          members: ["", "", "", "Drafted fitness evaluation"],
-        },
-        {
-          name: "LLM Fitness Functions",
-          members: ["Designed prompts", "", "", "Evaluation criteria testing"],
-        },
-        {
-          name: "Build PoC (Crossover/Mutation)",
-          members: ["", "", "Implemented mutation ops", ""],
-        },
-        {
-          name: "Multi-Agent System Framework",
-          members: ["Node roles & handshake", "", "Agent logic", ""],
-        },
-        {
-          name: "Implement RAG System & KB",
-          members: ["", "Built retrieval API", "Integrated vector DB", ""],
-        },
-        {
-          name: "Complete RAG Pipeline",
-          members: ["", "", "End-to-end RAG", ""],
-        },
-        {
-          name: "Automated Code Evaluation",
-          members: ["", "", "Evaluator logic", ""],
-        },
-        {
-          name: "Integrate Backend",
-          members: ["", "", "", "Frontend+backend link"],
-        },
-        {
-          name: "Finalize & Test System",
-          members: ["Tested final build", "", "", "Drafted final report"],
-        },
-      ];
+  {
+    name: "Study EvOC & DEAP",
+    members: [
+      "Studied EvOC codebase and other libraries like DEAP",
+      "Compared EA papers, papers on code generation and LLMs in the field of EA",
+      "Reviewed the UI of EvOC and analysed possible constraints",
+      "Mapped theoretical flow of EAs and noted gaps in modeling flexibility"
+    ],
+  },
+  {
+    name: "LLM-EA Research",
+    members: [
+      "Tested different prompts and recorded how LLMs respond to EA-related queries",
+      "Reviewed LLaMEA and similar works to understand LLM integration in EA",
+      "Sketched out early ideas for visual interaction with LLM outputs",
+      "Explored mutation theory and self-repairing code logic from papers"
+    ],
+  },
+  {
+    name: "Design System Architecture",
+    members: [
+      "Outlined backend data flow and LLM-EA integration logic",
+      "Defined key LLM modules and planned interaction points with EA engine",
+      "Planned user flow and basic interface structure",
+      "Mapped system modules to formal EA process components"
+    ],
+  },
+  {
+    name: "Problem-to-EA Mapping",
+    members: [
+      "Built backend logic to process natural language inputs into structured templates",
+      "Created sample prompts for extracting operators and constraints",
+      "Designed initial UI for problem statement input",
+      "Drafted fitness evaluation and constraint mapping structure"
+    ],
+  },
+  {
+    name: "LLM Fitness Functions",
+    members: [
+      "Connected LLM to a basic backend script for fitness generation",
+      "Improved prompt templates for generating fitness logic",
+      "Built a simple UI to enter problems and view fitness output",
+      "Reviewed fitness logic for correctness and constraint coverage"
+    ],
+  },
+  {
+    name: "Build PoC (Crossover/Mutation)",
+    members: [
+      "Developed logic for mutation and crossover operator generation",
+      "Enhanced prompt flow for operator extraction from descriptions",
+      "Extended UI with dropdowns and input fields for EA settings",
+      "Validated operator behavior on simple test problems"
+    ],
+  },
+  {
+    name: "Multi-Agent System Framework",
+    members: [
+      "Set up messaging and basic flow between LLM agents",
+      "Defined individual roles for mutation, fitness, and representation agents",
+      "Created visual layout for agent messages and logs",
+      "Modeled agent communication rules and flow structure"
+    ],
+  },
+  {
+    name: "Implement RAG System & KB",
+    members: [
+      "Built API to retrieve EA knowledge from stored documents",
+      "Set up vector DB and tested basic document search",
+      "Integrated frontend to show search results from KB",
+      "Structured EA knowledge entries and categories"
+    ],
+  },
+  {
+    name: "Complete RAG Pipeline",
+    members: [
+      "Linked RAG output with agents for context-aware code generation",
+      "Improved prompt formatting using retrieved knowledge",
+      "Displayed retrieved content alongside agent responses",
+      "Reviewed content retrieval accuracy across different EA cases"
+    ],
+  },
+  {
+    name: "Automated Code Evaluation",
+    members: [
+      "Built test cases and output checks for EA components",
+      "Connected evaluator to generated code blocks from agents",
+      "Displayed test outputs and validation feedback in UI",
+      "Defined formal checks and evaluation metrics for correctness"
+    ],
+  },
+  {
+    name: "Integrate Backend",
+    members: [
+      "Merged new modules with EvOC’s original code runner and visualizer",
+      "Connected ML agents to main backend system",
+      "Integrated frontend with generated EA pipeline",
+      "Validated logic and structure of the final integrated system"
+    ],
+  },
+  {
+    name: "Finalize & Test System",
+    members: [
+      "Ran tests and benchmarks on full pipeline using real-world problems",
+      "Documented model setup, usage, and evaluation process",
+      "Polished UI and created demo-ready views",
+      "Helped with final paper write-up and theoretical validation"
+    ],
+  },
+];
+
 
       window.addEventListener("DOMContentLoaded", () => {
     const tbody = document.getElementById("taskTableBody");
