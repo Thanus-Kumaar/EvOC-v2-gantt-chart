@@ -164,137 +164,143 @@
       }
 
       const tasks = [
-  {
-    name: "Study EvOC & DEAP",
-    members: [
-      "Studied EvOC codebase and other libraries like DEAP",
-      "Compared EA papers, papers on code generation and LLMs in the field of EA",
-      "Reviewed the UI of EvOC and analysed possible constraints",
-      "Mapped theoretical flow of EAs and noted gaps in modeling flexibility"
-    ],
-  },
-  {
-    name: "LLM-EA Research",
-    members: [
-      "Tested different prompts and recorded how LLMs respond to EA-related queries",
-      "Reviewed LLaMEA and similar works to understand LLM integration in EA",
-      "Sketched out early ideas for visual interaction with LLM outputs",
-      "Explored mutation theory and self-repairing code logic from papers"
-    ],
-  },
-  {
-    name: "Design System Architecture",
-    members: [
-      "Outlined backend data flow and LLM-EA integration logic",
-      "Defined key LLM modules and planned interaction points with EA engine",
-      "Planned user flow and basic interface structure",
-      "Mapped system modules to formal EA process components"
-    ],
-  },
-  {
-    name: "Problem-to-EA Mapping",
-    members: [
-      "Built backend logic to process natural language inputs into structured templates",
-      "Created sample prompts for extracting operators and constraints",
-      "Designed initial UI for problem statement input",
-      "Drafted fitness evaluation and constraint mapping structure"
-    ],
-  },
-  {
-    name: "LLM Fitness Functions",
-    members: [
-      "Connected LLM to a basic backend script for fitness generation",
-      "Improved prompt templates for generating fitness logic",
-      "Built a simple UI to enter problems and view fitness output",
-      "Reviewed fitness logic for correctness and constraint coverage"
-    ],
-  },
-  {
-    name: "Build PoC (Crossover/Mutation)",
-    members: [
-      "Developed logic for mutation and crossover operator generation",
-      "Enhanced prompt flow for operator extraction from descriptions",
-      "Extended UI with dropdowns and input fields for EA settings",
-      "Validated operator behavior on simple test problems"
-    ],
-  },
-  {
-    name: "Multi-Agent System Framework",
-    members: [
-      "Set up messaging and basic flow between LLM agents",
-      "Defined individual roles for mutation, fitness, and representation agents",
-      "Created visual layout for agent messages and logs",
-      "Modeled agent communication rules and flow structure"
-    ],
-  },
-  {
-    name: "Implement RAG System & KB",
-    members: [
-      "Built API to retrieve EA knowledge from stored documents",
-      "Set up vector DB and tested basic document search",
-      "Integrated frontend to show search results from KB",
-      "Structured EA knowledge entries and categories"
-    ],
-  },
-  {
-    name: "Complete RAG Pipeline",
-    members: [
-      "Linked RAG output with agents for context-aware code generation",
-      "Improved prompt formatting using retrieved knowledge",
-      "Displayed retrieved content alongside agent responses",
-      "Reviewed content retrieval accuracy across different EA cases"
-    ],
-  },
-  {
-    name: "Automated Code Evaluation",
-    members: [
-      "Built test cases and output checks for EA components",
-      "Connected evaluator to generated code blocks from agents",
-      "Displayed test outputs and validation feedback in UI",
-      "Defined formal checks and evaluation metrics for correctness"
-    ],
-  },
-  {
-    name: "Integrate Backend",
-    members: [
-      "Merged new modules with EvOC’s original code runner and visualizer",
-      "Connected ML agents to main backend system",
-      "Integrated frontend with generated EA pipeline",
-      "Validated logic and structure of the final integrated system"
-    ],
-  },
-  {
-    name: "Finalize & Test System",
-    members: [
-      "Ran tests and benchmarks on full pipeline using real-world problems",
-      "Documented model setup, usage, and evaluation process",
-      "Polished UI and created demo-ready views",
-      "Helped with final paper write-up and theoretical validation"
-    ],
-  },
-];
-
+        {
+          name: "Study EvOC & DEAP",
+          members: [
+            "Studied EvOC codebase and other libraries like DEAP",
+            "Compared EA papers, papers on code generation and LLMs in the field of EA",
+            "Reviewed the UI of EvOC and analysed possible constraints",
+            "Mapped theoretical flow of EAs and noted gaps in modeling flexibility",
+          ],
+        },
+        {
+          name: "LLM-EA Research",
+          members: [
+            "Tested different prompts and recorded how LLMs respond to EA-related queries",
+            "Reviewed LLaMEA, OpenEvolve and similar works to understand LLM integration in EA",
+            "Sketched out early ideas for visual interaction with LLM outputs",
+            "Read about evolutionary algorithms in-depth, including core concepts and math foundations from relevant books",
+          ],
+        },
+        {
+          name: "Design System Architecture",
+          members: [
+            "Explored OpenEvolve's architecture and outlined how to extend it with LLM support",
+            "Identified core modules in OpenEvolve and planned integration points for LLM-based generation",
+            "Designed user flow and planned interface structure around OpenEvolve’s modular EA setup",
+            "Mapped OpenEvolve components to theoretical EA building blocks and proposed additions for flexibility",
+          ],
+        },
+        {
+          name: "Problem-to-EA Mapping",
+          members: [
+            "Build backend logic to process natural language inputs into structured templates",
+            "Create sample prompts for extracting operators and constraints",
+            "Design initial UI for problem statement input",
+            "Draft fitness evaluation and constraint mapping structure",
+          ],
+        },
+        {
+          name: "LLM Fitness Functions",
+          members: [
+            "Improve prompt templates for generating fitness logic",
+            "Connect LLM to a basic backend script for fitness generation",
+            "Build a simple UI to enter problems and view fitness output",
+            "Review fitness logic for correctness and constraint coverage",
+          ],
+        },
+        {
+          name: "Build PoC (Crossover/Mutation)",
+          members: [
+            "Develop logic for mutation and crossover operator generation",
+            "Enhance prompt flow for operator extraction from descriptions",
+            "Extend UI with dropdowns and input fields for EA settings",
+            "Validate operator behavior on simple test problems",
+          ],
+        },
+        {
+          name: "Multi-Agent System Framework",
+          members: [
+            "Set up messaging and basic flow between LLM agents",
+            "Define individual roles for mutation, fitness, and representation agents",
+            "Create visual layout for agent messages and logs",
+            "Model agent communication rules and flow structure",
+          ],
+        },
+        {
+          name: "Implement RAG System & KB",
+          members: [
+            "Build API to retrieve EA knowledge from stored documents",
+            "Set up vector DB and test basic document search",
+            "Integrate frontend to show search results from KB",
+            "Structure EA knowledge entries and categories",
+          ],
+        },
+        {
+          name: "Complete RAG Pipeline",
+          members: [
+            "Improve prompt formatting using retrieved knowledge",
+            "Link RAG output with agents for context-aware code generation",
+            "Display retrieved content alongside agent responses",
+            "Review content retrieval accuracy across different EA cases",
+          ],
+        },
+        {
+          name: "Automated Code Evaluation",
+          members: [
+            "Build test cases and output checks for EA components",
+            "Connect evaluator to generated code blocks from agents",
+            "Display test outputs and validation feedback in UI",
+            "Define formal checks and evaluation metrics for correctness",
+          ],
+        },
+        {
+          name: "Integrate Backend",
+          members: [
+            "Merge new modules with EvOC’s original code runner and visualizer",
+            "Connect ML agents to main backend system",
+            "Integrate frontend with generated EA pipeline",
+            "Validate logic and structure of the final integrated system",
+          ],
+        },
+        {
+          name: "Finalize & Test System",
+          members: [
+            "Document model setup, usage, and evaluation process",
+            "Run tests and benchmarks on full pipeline using real-world problems",
+            "Polish UI and create demo-ready views",
+            "Help with final paper write-up and theoretical validation",
+          ],
+        },
+      ];
 
       window.addEventListener("DOMContentLoaded", () => {
-    const tbody = document.getElementById("taskTableBody");
+        const tbody = document.getElementById("taskTableBody");
 
-    tasks.forEach((task, idx) => {
-      const isSemester7 = idx < 6;
-      const bgClass = isSemester7 ? "bg-blue-100" : "bg-rose-100";
-      const textClass = isSemester7 ? "text-blue-900" : "text-rose-900";
+        tasks.forEach((task, idx) => {
+          const isSemester7 = idx < 6;
+          const bgClass = isSemester7 ? "bg-blue-100" : "bg-rose-100";
+          const textClass = isSemester7 ? "text-blue-900" : "text-rose-900";
 
-      const row = document.createElement("tr");
-      row.className = `${bgClass} hover:bg-yellow-50 transition`;
+          const row = document.createElement("tr");
+          row.className = `${bgClass} hover:bg-yellow-50 transition`;
 
-      row.innerHTML = `
-        <td class="px-4 py-3 font-semibold ${textClass} border border-black">${task.name}</td>
-        ${task.members.map(m =>
-          `<td class="px-4 py-3 border border-b-black ${m ? `${textClass} font-medium` : "text-gray-400 italic" }">${m || "—"}</td>`
-        ).join("")}
+          row.innerHTML = `
+        <td class="px-4 py-3 font-semibold ${textClass} border border-black">${
+            task.name
+          }</td>
+        ${task.members
+          .map(
+            (m) =>
+              `<td class="px-4 py-3 border border-b-black ${
+                m ? `${textClass} font-medium` : "text-gray-400 italic"
+              }">${m || "—"}</td>`
+          )
+          .join("")}
       `;
-      tbody.appendChild(row);
-    });
-  });
+          tbody.appendChild(row);
+        });
+      });
     </script>
   </head>
   <body class="bg-gray-100 font-sans p-6">
@@ -340,7 +346,9 @@
         <table
           class="min-w-full table-auto shadow-md rounded-lg overflow-hidden border-black"
         >
-          <thead class="bg-indigo-800 text-white text-sm font-semibold border border-black">
+          <thead
+            class="bg-indigo-800 text-white text-sm font-semibold border border-black"
+          >
             <tr>
               <th class="px-4 py-3 text-left">Task</th>
               <th class="px-4 py-3">You</th>
