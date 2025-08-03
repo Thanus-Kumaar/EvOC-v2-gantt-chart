@@ -166,6 +166,7 @@
       const tasks = [
         {
           name: "Study EvOC & DEAP",
+          monthYear: "June 2025",
           members: [
             "Studied EvOC codebase and other libraries like DEAP",
             "Compared EA papers, papers on code generation and LLMs in the field of EA",
@@ -175,6 +176,7 @@
         },
         {
           name: "LLM-EA Research",
+          monthYear: "June–July 2025",
           members: [
             "Tested different prompts and recorded how LLMs respond to EA-related queries",
             "Reviewed LLaMEA, OpenEvolve and similar works to understand LLM integration in EA",
@@ -184,6 +186,7 @@
         },
         {
           name: "Design System Architecture",
+          monthYear: "July–August 2025",
           members: [
             "Explored OpenEvolve's architecture and outlined how to extend it with LLM support",
             "Identified core modules in OpenEvolve and planned integration points for LLM-based generation",
@@ -193,6 +196,7 @@
         },
         {
           name: "Problem-to-EA Mapping",
+          monthYear: "August–September 2025",
           members: [
             "Build backend logic to process natural language inputs into structured templates",
             "Create sample prompts for extracting operators and constraints",
@@ -202,6 +206,7 @@
         },
         {
           name: "LLM Fitness Functions",
+          monthYear: "October 2025",
           members: [
             "Improve prompt templates for generating fitness logic",
             "Connect LLM to a basic backend script for fitness generation",
@@ -211,6 +216,7 @@
         },
         {
           name: "Build PoC (Crossover/Mutation)",
+          monthYear: "November 2025",
           members: [
             "Develop logic for mutation and crossover operator generation",
             "Enhance prompt flow for operator extraction from descriptions",
@@ -220,6 +226,7 @@
         },
         {
           name: "Multi-Agent System Framework",
+          monthYear: "December 2025 – January 2026",
           members: [
             "Set up messaging and basic flow between LLM agents",
             "Define individual roles for mutation, fitness, and representation agents",
@@ -229,6 +236,7 @@
         },
         {
           name: "Implement RAG System & KB",
+          monthYear: "December 2025 – January 2026",
           members: [
             "Build API to retrieve EA knowledge from stored documents",
             "Set up vector DB and test basic document search",
@@ -238,6 +246,7 @@
         },
         {
           name: "Complete RAG Pipeline",
+          monthYear: "December 2025 – February 2026",
           members: [
             "Improve prompt formatting using retrieved knowledge",
             "Link RAG output with agents for context-aware code generation",
@@ -247,6 +256,7 @@
         },
         {
           name: "Automated Code Evaluation",
+          monthYear: "February – March 2026",
           members: [
             "Build test cases and output checks for EA components",
             "Connect evaluator to generated code blocks from agents",
@@ -256,6 +266,7 @@
         },
         {
           name: "Integrate Backend",
+          monthYear: "April 2026",
           members: [
             "Merge new modules with EvOC’s original code runner and visualizer",
             "Connect ML agents to main backend system",
@@ -265,6 +276,7 @@
         },
         {
           name: "Finalize & Test System",
+          monthYear: "March – May 2026",
           members: [
             "Document model setup, usage, and evaluation process",
             "Run tests and benchmarks on full pipeline using real-world problems",
@@ -286,18 +298,17 @@
           row.className = `${bgClass} hover:bg-yellow-50 transition`;
 
           row.innerHTML = `
-        <td class="px-4 py-3 font-semibold ${textClass} border border-black">${
-            task.name
-          }</td>
-        ${task.members
-          .map(
-            (m) =>
-              `<td class="px-4 py-3 border border-b-black ${
-                m ? `${textClass} font-medium` : "text-gray-400 italic"
-              }">${m || "—"}</td>`
-          )
-          .join("")}
-      `;
+            <td class="px-4 py-3 font-semibold ${textClass} border border-black">${task.name}</td>
+            <td class="px-4 py-3 text-sm italic border border-black ${textClass}">${task.monthYear}</td>
+            ${task.members
+              .map(
+                (m) =>
+                  `<td class="px-4 py-3 border border-b-black ${
+                    m ? `${textClass} font-medium` : "text-gray-400 italic"
+                  }">${m || "—"}</td>`
+              )
+              .join("")}
+          `;
           tbody.appendChild(row);
         });
       });
@@ -349,13 +360,14 @@
           <thead
             class="bg-indigo-800 text-white text-sm font-semibold border border-black"
           >
-            <tr>
-              <th class="px-4 py-3 text-left">Task</th>
-              <th class="px-4 py-3">Thanus Kumaar A</th>
-              <th class="px-4 py-3">Sudharsan Vanamali</th>
-              <th class="px-4 py-3">Tharun Kumarr A</th>
-              <th class="px-4 py-3">Srivatsan S</th>
-            </tr>
+           <tr>
+            <th class="px-4 py-3 text-left">Task</th>
+            <th class="px-4 py-3 text-left">Timeline</th>
+            <th class="px-4 py-3">Thanus Kumaar A</th>
+            <th class="px-4 py-3">Sudharsan Vanamali</th>
+            <th class="px-4 py-3">Tharun Kumarr A</th>
+            <th class="px-4 py-3">Srivatsan S</th>
+          </tr>
           </thead>
           <tbody id="taskTableBody" class="text-sm border border-black"></tbody>
         </table>
