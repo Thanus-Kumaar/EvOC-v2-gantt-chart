@@ -164,225 +164,214 @@
       }
 
       const tasks = [
-        {
-          name: "Study EvOC & DEAP",
-          monthYear: "June 2025",
-          members: [
-            "Conducted literature review of EvOC codebase, DEAP, and LLM-EA papers.",
-            "Compared existing frameworks to identify gaps in modeling flexibility.",
-            "Mapped theoretical EA flows and identified architectural requirements.",
-            null,
-          ],
-        },
-        {
-          name: "LLM-EA Research",
-          monthYear: "June–July 2025",
-          members: [
-            "Explored LLaMEA, OpenEvolve, and other LLM-EA research projects.",
-            "Tested different prompts to understand LLM's capability for code generation.",
-            "Sketched early architectural ideas for LLM and agent interaction.",
-            null,
-          ],
-        },
-        {
-          name: "Design System Architecture",
-          monthYear: "July–August 2025",
-          members: [
-            "Architected the microservices framework for Go, Python, and LLM services.",
-            "Designed the WebSocket proxying and message forwarding logic.",
-            "Modeled the database schema (ERD) for robust session and code persistence.",
-            "Defined CI/CD with Lefthook and Makefiles for a professional workflow.",
-          ],
-        },
-        {
-          name: "Problem-to-EA Mapping",
-          monthYear: "August–September 2025",
-          members: [
-            "Created a structured template for user problem input.",
-            "Developed the prompt engineering strategy for LLM code generation.",
-            "Designed initial UI for problem statement input.",
-            "Drafted fitness evaluation and constraint mapping structure.",
-          ],
-        },
-        {
-          name: "Backend Core Implementation",
-          monthYear: "October–November 2025",
-          members: [
-            "Implemented the Go client wrapper for the Jupyter Kernel Gateway.",
-            "Set up the database connection pool for CockroachDB.",
-            "Developed handler functions for core API endpoints (CRUD on problems).",
-            "Established a robust logging module with zerolog.",
-          ],
-        },
-        {
-          name: "Build PoC (Crossover/Mutation)",
-          monthYear: "November 2025",
-          members: [
-            "Develop logic for mutation and crossover operator generation.",
-            "Enhance prompt flow for operator extraction from descriptions.",
-            "Extend UI with dropdowns and input fields for EA settings.",
-            "Validate operator behavior on simple test problems.",
-          ],
-        },
-        {
-          name: "Multi-Agent System Framework",
-          monthYear: "December 2025 – January 2026",
-          members: [
-            "Set up messaging and basic flow between LLM agents.",
-            "Define individual roles for mutation, fitness, and representation agents.",
-            "Create visual layout for agent messages and logs.",
-            "Model agent communication rules and flow structure.",
-          ],
-        },
-        {
-          name: "Implement RAG System & KB",
-          monthYear: "December 2025 – January 2026",
-          members: [
-            "Build API to retrieve EA knowledge from stored documents.",
-            "Set up vector DB and test basic document search.",
-            "Integrate frontend to show search results from KB.",
-            "Structure EA knowledge entries and categories.",
-          ],
-        },
-        {
-          name: "Complete RAG Pipeline",
-          monthYear: "December 2025 – February 2026",
-          members: [
-            "Improve prompt formatting using retrieved knowledge.",
-            "Link RAG output with agents for context-aware code generation.",
-            "Display retrieved content alongside agent responses.",
-            "Review content retrieval accuracy across different EA cases.",
-          ],
-        },
-        {
-          name: "Automated Code Evaluation",
-          monthYear: "February – March 2026",
-          members: [
-            "Build test cases and output checks for EA components.",
-            "Connect evaluator to generated code blocks from agents.",
-            "Display test outputs and validation feedback in UI.",
-            "Define formal checks and evaluation metrics for correctness.",
-          ],
-        },
-        {
-          name: "Integrate Backend",
-          monthYear: "April 2026",
-          members: [
-            "Merge new modules with EvOC’s original code runner and visualizer.",
-            "Connect ML agents to main backend system.",
-            "Integrate frontend with generated EA pipeline.",
-            "Validate logic and structure of the final integrated system.",
-          ],
-        },
-        {
-          name: "Finalize & Test System",
-          monthYear: "March – May 2026",
-          members: [
-            "Document model setup, usage, and evaluation process.",
-            "Run tests and benchmarks on full pipeline using real-world problems.",
-            "Polish UI and create demo-ready views.",
-            "Help with final paper write-up and theoretical validation.",
-          ],
-        },
-      ];
+        {
+          name: "Study EvOC & DEAP",
+          monthYear: "June 2025",
+          members: [
+            "Studied EvOC codebase and other libraries like DEAP",
+            "Compared EA papers, papers on code generation and LLMs in the field of EA",
+            "Reviewed the UI of EvOC and analysed possible constraints",
+            "Mapped theoretical flow of EAs and noted gaps in modeling flexibility",
+          ],
+        },
+        {
+          name: "LLM-EA Research",
+          monthYear: "June–July 2025",
+          members: [
+            "Tested different prompts and recorded how LLMs respond to EA-related queries",
+            "Reviewed LLaMEA, OpenEvolve and similar works to understand LLM integration in EA",
+            "Sketched out early ideas for visual interaction with LLM outputs",
+            "Read about evolutionary algorithms in-depth, including core concepts and math foundations from relevant books",
+          ],
+        },
+        {
+          name: "Design System Architecture",
+          monthYear: "July–August 2025",
+          members: [
+            "Explored OpenEvolve's architecture and outlined how to extend it with LLM support",
+            "Identified core modules in OpenEvolve and planned integration points for LLM-based generation",
+            "Designed user flow and planned interface structure around OpenEvolve’s modular EA setup",
+            "Mapped OpenEvolve components to theoretical EA building blocks and proposed additions for flexibility",
+          ],
+        },
+        {
+          name: "Problem-to-EA Mapping",
+          monthYear: "August–September 2025",
+          members: [
+            "Build backend logic to process natural language inputs into structured templates",
+            "Create sample prompts for extracting operators and constraints",
+            "Design initial UI for problem statement input",
+            "Draft fitness evaluation and constraint mapping structure",
+          ],
+        },
+        {
+          name: "LLM Fitness Functions",
+          monthYear: "October 2025",
+          members: [
+            "Improve prompt templates for generating fitness logic",
+            "Connect LLM to a basic backend script for fitness generation",
+            "Build a simple UI to enter problems and view fitness output",
+            "Review fitness logic for correctness and constraint coverage",
+          ],
+        },
+        {
+          name: "Build PoC (Crossover/Mutation)",
+          monthYear: "November 2025",
+          members: [
+            "Develop logic for mutation and crossover operator generation",
+            "Enhance prompt flow for operator extraction from descriptions",
+            "Extend UI with dropdowns and input fields for EA settings",
+            "Validate operator behavior on simple test problems",
+          ],
+        },
+        {
+          name: "Multi-Agent System Framework",
+          monthYear: "December 2025 – January 2026",
+          members: [
+            "Set up messaging and basic flow between LLM agents",
+            "Define individual roles for mutation, fitness, and representation agents",
+            "Create visual layout for agent messages and logs",
+            "Model agent communication rules and flow structure",
+          ],
+        },
+        {
+          name: "Implement RAG System & KB",
+          monthYear: "December 2025 – January 2026",
+          members: [
+            "Build API to retrieve EA knowledge from stored documents",
+            "Set up vector DB and test basic document search",
+            "Integrate frontend to show search results from KB",
+            "Structure EA knowledge entries and categories",
+          ],
+        },
+        {
+          name: "Complete RAG Pipeline",
+          monthYear: "December 2025 – February 2026",
+          members: [
+            "Improve prompt formatting using retrieved knowledge",
+            "Link RAG output with agents for context-aware code generation",
+            "Display retrieved content alongside agent responses",
+            "Review content retrieval accuracy across different EA cases",
+          ],
+        },
+        {
+          name: "Automated Code Evaluation",
+          monthYear: "February – March 2026",
+          members: [
+            "Build test cases and output checks for EA components",
+            "Connect evaluator to generated code blocks from agents",
+            "Display test outputs and validation feedback in UI",
+            "Define formal checks and evaluation metrics for correctness",
+          ],
+        },
+        {
+          name: "Integrate Backend",
+          monthYear: "April 2026",
+          members: [
+            "Merge new modules with EvOC’s original code runner and visualizer",
+            "Connect ML agents to main backend system",
+            "Integrate frontend with generated EA pipeline",
+            "Validate logic and structure of the final integrated system",
+          ],
+        },
+        {
+          name: "Finalize & Test System",
+          monthYear: "March – May 2026",
+          members: [
+            "Document model setup, usage, and evaluation process",
+            "Run tests and benchmarks on full pipeline using real-world problems",
+            "Polish UI and create demo-ready views",
+            "Help with final paper write-up and theoretical validation",
+          ],
+        },
+      ];
 
-        const chart = new google.visualization.Gantt(
-          document.getElementById("chart_div")
-        );
-        chart.draw(data, {
-          height: 520,
-          gantt: {
-            defaultStartDate: new Date(2025, 4, 1),
-            barHeight: 22,
-            trackHeight: 40,
-            sortTasks: false,
-          },
-        });
-      
-      window.addEventListener("DOMContentLoaded", () => {
-        const tbody = document.getElementById("taskTableBody");
+      window.addEventListener("DOMContentLoaded", () => {
+        const tbody = document.getElementById("taskTableBody");
 
-        tasks.forEach((task, idx) => {
-          const isSemester7 = idx < 5;
-          const bgClass = isSemester7 ? "bg-blue-100" : "bg-rose-100";
-          const textClass = isSemester7 ? "text-blue-900" : "text-rose-900";
+        tasks.forEach((task, idx) => {
+          const isSemester7 = idx < 6;
+          const bgClass = isSemester7 ? "bg-blue-100" : "bg-rose-100";
+          const textClass = isSemester7 ? "text-blue-900" : "text-rose-900";
 
-          const row = document.createElement("tr");
-          row.className = `${bgClass} hover:bg-yellow-50 transition`;
+          const row = document.createElement("tr");
+          row.className = `${bgClass} hover:bg-yellow-50 transition`;
 
-          row.innerHTML = `
-            <td class="px-4 py-3 font-semibold ${textClass} border border-black">${task.name}</td>
-            <td class="px-4 py-3 text-sm italic border border-black ${textClass}">${task.monthYear}</td>
-            ${task.members
-              .map(
-                (m) =>
-                  `<td class="px-4 py-3 border border-b-black ${
-                    m ? `${textClass} font-medium` : "text-gray-400 italic"
-                  }">${m || "—"}</td>`
-              )
-              .join("")}
-          `;
-          tbody.appendChild(row);
-        });
-      });
-    </script>
-  </head>
-  <body class="bg-gray-100 font-sans p-6">
-    <div class="max-w-7xl mx-auto bg-white shadow rounded-lg p-6">
-      <h1
-        class="text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-6"
-      >
-        Final Year Project Timeline
-      </h1>
-      <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-        This Gantt chart visualizes the key phases of creating Evolution On
-        Click (v2).
-      </p>
-      <div
-        class="my-4 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-base md:text-lg"
-      >
-        <div class="flex items-center">
-          <span
-            class="inline-block w-5 h-5 rounded-full bg-blue-500 mr-2"
-          ></span>
-          <span>Semester 7</span>
-        </div>
-        <div class="flex items-center">
-          <span
-            class="inline-block w-5 h-5 rounded-full bg-rose-500 mr-2"
-          ></span>
-          <span>Semester 8</span>
-        </div>
-      </div>
+          row.innerHTML = `
+            <td class="px-4 py-3 font-semibold ${textClass} border border-black">${task.name}</td>
+            <td class="px-4 py-3 text-sm italic border border-black ${textClass}">${task.monthYear}</td>
+            ${task.members
+              .map(
+                (m) =>
+                  `<td class="px-4 py-3 border border-b-black ${
+                    m ? `${textClass} font-medium` : "text-gray-400 italic"
+                  }">${m || "—"}</td>`
+              )
+              .join("")}
+          `;
+          tbody.appendChild(row);
+        });
+      });
+    </script>
+  </head>
+  <body class="bg-gray-100 font-sans p-6">
+    <div class="max-w-7xl mx-auto bg-white shadow rounded-lg p-6">
+      <h1
+        class="text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-6"
+      >
+        Final Year Project Timeline
+      </h1>
+      <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+        This Gantt chart visualizes the key phases of creating Evolution On
+        Click (v2).
+      </p>
+      <div
+        class="my-4 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8 text-base md:text-lg"
+      >
+        <div class="flex items-center">
+          <span
+            class="inline-block w-5 h-5 rounded-full bg-blue-500 mr-2"
+          ></span>
+          <span>Semester 7</span>
+        </div>
+        <div class="flex items-center">
+          <span
+            class="inline-block w-5 h-5 rounded-full bg-red-500 mr-2"
+          ></span>
+          <span>Semester 8</span>
+        </div>
+      </div>
 
-            <div
-        id="chart_div"
-        class="mb-12 rounded border p-2 bg-white shadow"
-      ></div>
+      <!-- Gantt Chart -->
+      <div
+        id="chart_div"
+        class="mb-12 rounded border p-2 bg-white shadow"
+      ></div>
 
-            <h2 class="text-2xl font-semibold mb-4 text-center text-indigo-800">
-        Individual Contributions
-      </h2>
+      <!-- Vertical Swimlane Table -->
+      <h2 class="text-2xl font-semibold mb-4 text-center text-indigo-800">
+        Individual Contributions
+      </h2>
 
-      <div class="overflow-x-auto">
-        <table
-          class="min-w-full table-auto shadow-md rounded-lg overflow-hidden border-black"
-        >
-          <thead
-            class="bg-indigo-800 text-white text-sm font-semibold border border-black"
-          >
-           <tr>
-            <th class="px-4 py-3 text-left">Task</th>
-            <th class="px-4 py-3 text-left">Timeline</th>
-            <th class="px-4 py-3">Thanus Kumaar A</th>
-            <th class="px-4 py-3">Sudharsan Vanamali</th>
-            <th class="px-4 py-3">Tharun Kumarr A</th>
-            <th class="px-4 py-3">Srivatsan S</th>
-          </tr>
-          </thead>
-          <tbody id="taskTableBody" class="text-sm border border-black"></tbody>
-        </table>
-      </div>
-    </div>
-  </body>
+      <div class="overflow-x-auto">
+        <table
+          class="min-w-full table-auto shadow-md rounded-lg overflow-hidden border-black"
+        >
+          <thead
+            class="bg-indigo-800 text-white text-sm font-semibold border border-black"
+          >
+           <tr>
+            <th class="px-4 py-3 text-left">Task</th>
+            <th class="px-4 py-3 text-left">Timeline</th>
+            <th class="px-4 py-3">Thanus Kumaar A</th>
+            <th class="px-4 py-3">Sudharsan Vanamali</th>
+            <th class="px-4 py-3">Tharun Kumarr A</th>
+            <th class="px-4 py-3">Srivatsan S</th>
+          </tr>
+          </thead>
+          <tbody id="taskTableBody" class="text-sm border border-black"></tbody>
+        </table>
+      </div>
+    </div>
+  </body>
 </html>
